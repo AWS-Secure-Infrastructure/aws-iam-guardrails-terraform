@@ -89,6 +89,7 @@ The break-glass administrative role enforces MFA using a condition block:
     }
   }
 }
+```
 
 This models real-world production security practices.
 
@@ -164,3 +165,8 @@ It demonstrates how to:
 - Enforce conditional administrative access
 - Implement security guardrails using Infrastructure as Code
 
+---
+
+## Author
+
+Sebastian Silva C. - Cloud Infrastructure & Security Engineering - Berlin, Germany
