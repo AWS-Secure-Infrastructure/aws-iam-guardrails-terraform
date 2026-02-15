@@ -97,12 +97,14 @@ This models real-world production security practices.
 
 ## Terraform Structure
 
+```
 aws-iam-guardrails-terraform/
 ├── versions.tf
 ├── provider.tf
 ├── variables.tf
 ├── locals.tf
 ├── main.tf
+```
 
 All IAM roles, policies, and resource definitions are managed declaratively using Terraform.
 
