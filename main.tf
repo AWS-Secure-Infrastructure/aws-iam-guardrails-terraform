@@ -127,3 +127,37 @@ resource "aws_iam_role_policy_attachment" "s3_guardrail_attach" {
   role       = aws_iam_role.s3_reader_role.name
   policy_arn = aws_iam_policy.guardrail_deny_policy.arn
 }
+
+############################################
+# Break-Glass Admin Role (MFA Required)
+############################################
+
+data "aws_iam_policy_document" "breakglass_assume_role" {
+  statement {
+    actions = ["sts:AssumeRole"]
+
+    principals {
+      type        = "AWS"
+      identifiers = ["*"]
+    }
+
+    condition {
+      test     = "Bool"
+      variable = "aws:MultiFactorAuthPresent"
+      values   = ["true"]
+    }
+  }
+}
+
+resource "aws_iam_role" "breakglass_admin_role" {
+  name               = "${var.project_name}-breakglass-admin"
+  assume_role_policy = data.aws_iam_policy_document.breakglass_assume_role.json
+
+  tags = local.common_tags
+}
+
+resource "aws_iam_role_policy_attachment" "breakglass_admin_attach" {
+  role       = aws_iam_role.breakglass_admin_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+}
+
