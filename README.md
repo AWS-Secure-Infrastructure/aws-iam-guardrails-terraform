@@ -21,7 +21,9 @@ The objective is to demonstrate practical IAM engineering patterns used to preve
 
 ---
 
-## Architecture Model
+## Architecture Design
+
+![IAM Architecture](diagram.png)
 
 The following IAM roles are implemented:
 
