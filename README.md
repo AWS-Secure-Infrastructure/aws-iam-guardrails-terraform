@@ -173,4 +173,4 @@ It demonstrates how to:
 
 ## Author
 
-Sebastian Silva C. - Cloud Infrastructure & Security Engineering - Berlin, Germany
+Sebastian Silva C. - Cloud Engineer – Secure Infrastructure & Automation - Berlin, Germany
